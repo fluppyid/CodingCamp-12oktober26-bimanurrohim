@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Todo Life Dashboard</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+
+    <!-- Global LocalStorage-unavailable warning banner -->
+    <div id="storage-warning" role="alert" hidden></div>
+
+    <header>
+      <h1>Todo Life Dashboard</h1>
+    </header>
+
+    <main class="dashboard-grid">
+
+      <!-- Greeting Widget -->
+      <section id="greeting-widget">
+        <h2>Greeting</h2>
+        <div class="widget-content">
+          <p id="greeting-time" aria-live="off">--:--:--</p>
+          <p id="greeting-date">Date unavailable</p>
+          <p id="greeting-message">Hello</p>
+        </div>
+      </section>
+
+      <!-- Focus Timer Widget -->
+      <section id="timer-widget">
+        <h2>Focus Timer</h2>
+        <div class="widget-content">
+          <p id="timer-display">25:00</p>
+          <div class="timer-controls">
+            <button id="timer-start" aria-label="Start timer">Start</button>
+            <button id="timer-stop" aria-label="Stop timer">Stop</button>
+            <button id="timer-reset" aria-label="Reset timer">Reset</button>
+          </div>
+          <div id="timer-notification" role="alert" hidden>
+            Focus session complete! Take a break.
+          </div>
+        </div>
+      </section>
+
+      <!-- To-Do List Widget -->
+      <section id="todo-widget">
+        <h2>To-Do List</h2>
+        <div class="widget-content">
+          <form id="todo-form" novalidate>
+            <label for="todo-input">New task</label>
+            <input
+              type="text"
+              id="todo-input"
+              maxlength="200"
+              placeholder="Add a new task…"
+              autocomplete="off"
+            />
+            <button type="submit" aria-label="Add task">Add</button>
+          </form>
+          <div id="todo-validation" role="alert" class="validation-msg" hidden></div>
+          <ul id="todo-list" aria-label="Task list"></ul>
+        </div>
+      </section>
+
+      <!-- Quick Links Widget -->
+      <section id="quicklinks-widget">
+        <h2>Quick Links</h2>
+        <div class="widget-content">
+          <form id="quicklinks-form" novalidate>
+            <label for="quicklinks-label-input">Label</label>
+            <input
+              type="text"
+              id="quicklinks-label-input"
+              maxlength="50"
+              placeholder="Site name"
+              autocomplete="off"
+            />
+            <label for="quicklinks-url-input">URL</label>
+            <input
+              type="url"
+              id="quicklinks-url-input"
+              maxlength="2048"
+              placeholder="https://example.com"
+              autocomplete="off"
+            />
+            <button type="submit" aria-label="Add quick link">Add</button>
+          </form>
+          <div id="quicklinks-validation" role="alert" class="validation-msg" hidden></div>
+          <div id="quicklinks-list" aria-label="Quick links"></div>
+        </div>
+      </section>
+
+    </main>
+
+    <script src="js/app.js"></script>
+  </body>
+</html>
